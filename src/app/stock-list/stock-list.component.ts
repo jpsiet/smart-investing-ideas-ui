@@ -5,12 +5,14 @@ import { ColDef } from 'ag-grid-community';
 import { MatDialog } from '@angular/material/dialog';
 import { StockDetailDialogComponent } from '../stock-details/stock-detail.component';
 import { Stock } from '../services/stock';
+import { StockDetailRendererComponent } from '../gridcustomicon/stock-details-render.component';
 
 interface IRow {
   id: number;
   name: string;
   cusip: string;
   sector: string;
+  details:any
 }
 
 @Component({
@@ -20,14 +22,25 @@ interface IRow {
 })
 export class StockListComponent {
   stocks : IRow[] = [];
+  frameworkComponents = {
+    'detailCellRenderer': StockDetailRendererComponent  // Register custom cell renderer
+  };
   // Column Definitions: Defines & controls grid columns.
   colDefs: ColDef<IRow>[] = [
-    { field: "id" },
+    { field: "id" ,width:100},
     { field: "name" },
     { field: "sector" },
     { field: "cusip" },
+    {headerName: 'Details',
+      field: 'details',
+      cellRenderer: 'detailCellRenderer', // Use custom cell renderer
+      maxWidth: 100 }
   ];
+  context: any;
   constructor( private stockSrvice:StockServiceService,private dialog: MatDialog) {
+    this.context = {
+      componentParent: this
+  }
 
     this.getAllStocks();
   }

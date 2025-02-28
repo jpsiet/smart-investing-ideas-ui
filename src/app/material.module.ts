@@ -129,10 +129,7 @@ import {DialogModule} from '@angular/cdk/dialog';
      MatToolbarModule,
      MatTooltipModule,
      MatNativeDateModule,
-
-
-
-
+     MatIconModule
   ]
 })
 export class MaterialModule {}

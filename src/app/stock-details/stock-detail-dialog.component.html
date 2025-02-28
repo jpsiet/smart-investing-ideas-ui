@@ -8,9 +8,17 @@
       <p><strong>Price:</strong> ${{ stock.price }}</p>
       <p><strong>Market Cap:</strong> {{ stock.marketCap }}</p>
     </div>
-    <div mat-dialog-actions>
-      <button mat-button mat-dialog-close >Close</button>
-    </div>
+    <!-- <div mat-dialog-actions>
+      <button mat-icon-button (click)="closeDialog()"
+      class="close-button">
+      <mat-icon>X</mat-icon>
+    </button>
+    </div> -->
+
+    <mat-dialog-actions>
+       <button mat-button  class="close-button" [mat-dialog-close]="true">close</button>
+    </mat-dialog-actions>
+
   </div>
 
 </div>

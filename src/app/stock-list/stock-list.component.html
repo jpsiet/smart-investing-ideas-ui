@@ -9,8 +9,9 @@
         style="width: 850px; height: 350px;"  class="bg-white"
         [rowData]="stocks"
         [columnDefs]="colDefs"
+        [context]="context"
         class="ag-theme-alpine"
-        (rowClicked)="onRowClicked($event)"
+        [components]="frameworkComponents"
       />
     </div>
 
