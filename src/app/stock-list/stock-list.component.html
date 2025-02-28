@@ -1,0 +1,19 @@
+<div class="flex justify-center  flex-col  bg-green-200 ">
+  <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+   <div class="flex justify-center  flex-row m-2 py-2  bg-white-300">
+    <button mat-raised-button color="primary" class="w-20" (click)="getAllStocks()" > Refresh</button>
+   </div>
+
+    <div class="flex justify-center  bg-white">
+      <ag-grid-angular
+        style="width: 850px; height: 350px;"  class="bg-white"
+        [rowData]="stocks"
+        [columnDefs]="colDefs"
+        class="ag-theme-alpine"
+        (rowClicked)="onRowClicked($event)"
+      />
+    </div>
+
+</div>
+
+

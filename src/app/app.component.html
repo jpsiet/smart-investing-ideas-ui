@@ -1,3 +1,20 @@
-<h1 class="text-3xl font-bold underline text-center mt-10 text-green-600">
- Welcome to  new trading investing ideas
-</h1>
+<div  class="content-center flex flex-col  bg-blue-100">
+      <div>
+            <p class="text-3xl font-bold underline text-center mt-10"
+            *ngIf="welcome$ | async as data">
+              Welcome to  modern  trading investing    {{data.content}}
+      </p>
+      </div>
+
+       <div  class=" flex justify-center bg-blue-200 ">
+        <button mat-button color="primary"  (click)="addStock()"> Add A stock</button>
+        <button mat-button color="primary"  (click)="getAllStocks()" >Latest Stocks</button>
+      </div>
+
+        <router-outlet>
+          </router-outlet>
+
+</div>
+
+
+
