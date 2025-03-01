@@ -1,5 +1,24 @@
 <div class="max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+      <!-- Name Field -->
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-semibold text-gray-700">NAME</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Enter name"
+          class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="text-sm text-red-500">
+          <div *ngIf="form.get('name')?.hasError('required')">NAME is required.</div>
+
+        </div>
+      </div>
+
+
     <!-- CUSIP Field -->
     <div class="mb-4">
       <label for="cusip" class="block text-sm font-semibold text-gray-700">CUSIP</label>
@@ -12,9 +31,43 @@
       />
       <div *ngIf="form.get('cusip')?.invalid && form.get('cusip')?.touched" class="text-sm text-red-500">
         <div *ngIf="form.get('cusip')?.hasError('required')">CUSIP is required.</div>
-        <div *ngIf="form.get('cusip')?.hasError('pattern')">CUSIP must be a 9-digit number.</div>
+        <div *ngIf="form.get('cusip')?.hasError('pattern')">CUSIP must be a 3-digit number.</div>
       </div>
     </div>
+
+
+ <!-- MArket Cap Field -->
+ <div class="mb-4">
+  <label for="marketCap" class="block text-sm font-semibold text-gray-700">Market Cap</label>
+  <input
+    id="marketCap"
+    type="text"
+    formControlName="marketCap"
+    placeholder="Enter marketCap"
+    class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+  />
+  <div *ngIf="form.get('marketCap')?.invalid && form.get('marketCap')?.touched" class="text-sm text-red-500">
+    <div *ngIf="form.get('marketCap')?.hasError('required')">marketCap is required.</div>
+    <div *ngIf="form.get('marketCap')?.hasError('pattern')">marketCap must be a 3-digit number.</div>
+  </div>
+</div>
+
+
+ <!-- Price Field -->
+ <div class="mb-4">
+  <label for="price" class="block text-sm font-semibold text-gray-700">Price</label>
+  <input
+    id="price"
+    type="text"
+    formControlName="price"
+    placeholder="Enter price"
+    class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+  />
+  <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched" class="text-sm text-red-500">
+    <div *ngIf="form.get('price')?.hasError('required')">price is required.</div>
+    <div *ngIf="form.get('price')?.hasError('pattern')">price must be a 3-digit number.</div>
+  </div>
+</div>
 
     <!-- Description Field -->
     <div class="mb-4">
