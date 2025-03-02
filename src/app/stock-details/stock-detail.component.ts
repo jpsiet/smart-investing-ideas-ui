@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Stock } from '../services/stock';
+import { Stock } from 'src/generated/model/stock';
+
 
 
 @Component({

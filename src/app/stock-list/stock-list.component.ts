@@ -4,8 +4,9 @@ import { StockServiceService } from '../services/stock-service.service';
 import { ColDef } from 'ag-grid-community';
 import { MatDialog } from '@angular/material/dialog';
 import { StockDetailDialogComponent } from '../stock-details/stock-detail.component';
-import { Stock } from '../services/stock';
-import { StockDetailRendererComponent } from '../gridcustomicon/stock-details-render.component';
+
+import { StockDetailRendererComponent } from '../renderers/stock-details-render.component';
+import { Stock } from 'src/generated/model/stock';
 
 interface IRow {
   id: number;
@@ -27,7 +28,6 @@ export class StockListComponent {
   };
   // Column Definitions: Defines & controls grid columns.
   colDefs: ColDef<IRow>[] = [
-    { field: "id" ,width:100},
     { field: "name" },
     { field: "sector" },
     { field: "cusip" },

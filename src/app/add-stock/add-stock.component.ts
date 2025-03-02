@@ -21,9 +21,9 @@ export class AddStockComponent {
   ngOnInit() {
     this.form = this.fb.group({
       name: ['', Validators.required],
-      cusip: ['', [Validators.required, Validators.pattern('^[0-9]{3-9}$')]], // Example pattern for Cusip (9 digits)
-      marketCap: ['', [Validators.required, Validators.pattern('^[0-9]{3-9}$')]], // Example pattern for Cusip (3 digits)
-      price: ['', [Validators.required, Validators.pattern('^[0-9]{3-9}$')]], // Example pattern for Cusip (3 digits)
+      cusip: ['', Validators.required], // Example pattern for Cusip (9 digits)
+      marketCap: ['', [Validators.required, Validators.pattern('^\d+(\.\d+)?$')]], // Example pattern for Cusip (3 digits)
+      price: ['', [Validators.required, Validators.pattern('^\d+(\.\d+)?$')]], // Example pattern for Cusip (3 digits)
       description: ['', Validators.required],
       sector: ['', Validators.required]
     });

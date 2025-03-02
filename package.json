@@ -9,7 +9,7 @@
     "test": " ng  jest",
     "test:watch": " ng jest --watch",
     "test:coverage": " ngjest --coverage",
-    "generate-api": "openapi-generator-cli generate -i open-api-yaml/students.yaml -g typescript-angular -o src/generated/ --global-property models"
+    "generate-api": "openapi-generator-cli generate -i open-api-yaml/stock.yaml -g typescript-angular -o src/generated/ --global-property models"
   },
   "private": true,
   "dependencies": {

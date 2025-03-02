@@ -1,0 +1,100 @@
+openapi: 3.0.1
+info:
+  title: Stock API
+  description: API for managing stocks
+  version: 1.0.0
+paths:
+  /stocks:
+    get:
+      summary: Get all stocks
+      operationId: getAllStocks
+      responses:
+        '200':
+          description: List of stocks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stock'
+    post:
+      summary: Add a new stock
+      operationId: addStock
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stock'
+      responses:
+        '201':
+          description: Stock added
+        '400':
+          description: Invalid stock input
+
+  /stocks/{cusip}:
+    get:
+      summary: Get stock by Cusip
+      operationId: getStockByCusip
+      parameters:
+        - name: cusip
+          in: path
+          required: true
+          description: Cusip of the stock
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Stock details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+        '404':
+          description: Stock not found
+
+    delete:
+      summary: Delete stock by Cusip
+      operationId: deleteStockByCusip
+      parameters:
+        - name: cusip
+          in: path
+          required: true
+          description: Cusip of the stock to be deleted
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Stock successfully deleted
+        '404':
+          description: Stock not found
+
+
+
+components:
+  schemas:
+    Stock:
+      type: object
+      properties:
+        cusip:
+          type: string
+          example: "AAPL"
+        name:
+          type: string
+          example: "Apple Inc."
+        sector:
+          type: string
+          example: "Technology"
+        price:
+          type: number
+          format: float
+          example: 150.25
+        marketCap:
+          type: number
+          format: float
+          example: 150.25
+        description:
+          type: string
+          example: "any thing about"
+          
+ 

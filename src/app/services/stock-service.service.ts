@@ -22,7 +22,7 @@ export class StockServiceService {
       })
     };
 
-    return this.http.post(this.baseUrl,{...stock, id:5})
+    return this.http.post(this.baseUrl,{...stock})
   }
 
   getStockById(id:number){

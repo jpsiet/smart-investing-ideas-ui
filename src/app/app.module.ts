@@ -10,7 +10,7 @@ import { AgGridAngular } from "ag-grid-angular";
 import { StockListComponent } from './stock-list/stock-list.component';
 import { MaterialModule } from './material.module';
 import { StockDetailDialogComponent } from './stock-details/stock-detail.component';
-import { StockDetailRendererComponent } from './gridcustomicon/stock-details-render.component';
+import { StockDetailRendererComponent } from './renderers/stock-details-render.component';
 import  {BrowserAnimationsModule}  from '@angular/platform-browser/animations'
 
 
